@@ -79,6 +79,10 @@ def view_student(username):
 def view_css(file):
     return send_from_directory('css', file)
 
+@app.route('/images/<file>')
+def view_images(file):
+    return send_from_directory('images', file)
+
 if __name__ == '__main__':
     chdir(dirname(__file__))
     app.run(debug=True)
