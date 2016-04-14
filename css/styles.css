@@ -1,1 +1,4 @@
-h1 { color:#FF0000; }
+h1 { color:blue; }
+#nameOfStudent { color:blue;}
+#nameOfStudent { font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif}
+#nameOfStudent { font-size: 40px;}

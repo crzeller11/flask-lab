@@ -13,7 +13,7 @@ def view_hello():
 
 @app.route('/demo-1')
 def view_demo_1():
-    return render_template('demo-1.html', name='Justin')
+    return render_template('demo-1.html', name='Chloe Raine Zeller')
 
 @app.route('/demo-2/<name>')
 def view_demo_2(name):
@@ -21,8 +21,8 @@ def view_demo_2(name):
 
 @app.route('/demo-3')
 def view_demo_3():
-    names = ['Alice', 'Bob', 'Charlie']
-    return render_template('demo-3.html', salutation='Roll call', names=names)
+    asdf = ['Alice', 'Bob', 'Charlie']
+    return render_template('demo-3.html', salutation='Roll call', names=asdf)
 
 # STUDENT DIRECTORY APP
 
@@ -53,11 +53,25 @@ def get_data():
 
 @app.route('/directory')
 def view_directory():
-    return 'FIXME'
+    students = get_data()
+    return render_template('directory.html', students=students)
+
 
 @app.route('/directory/<username>')
 def view_student(username):
-    return 'FIXME'
+    students = get_data()
+    length = len(students)
+    for index in range(len(students)):
+        student = students[index]
+        if username == student.username:
+            current_student = student
+            prev_student = students[index - 1]
+            if index + 1 == len(students):
+                next_student = students[0]
+            else:
+                next_student = students[index + 1]
+
+    return render_template('student.html', student=current_student, prev_student=prev_student, next_student=next_student)
 
 # DON'T TOUCH THE CODE BELOW THIS LINE
 
